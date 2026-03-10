@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator with Split</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #6f42c1; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #5a32a3; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #6f42c1; }
+        
+        /* Estilos del Menú (Líneas 20-35 aprox) */
+        .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
+        .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
+        .btn-of { background-color: #1e90ff; }
+
+        .res-item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 16px; }
+        .res-total { border-top: 1px solid #ddd; padding-top: 5px; margin-top: 10px; font-weight: bold; font-size: 18px; color: #6f42c1; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Tip Calculator 🍔</h2>
+    <label for="billAmount">Bill Amount ($):</label>
+    <input type="number" id="billAmount" placeholder="0.00" step="0.01">
+
+    <label for="tipPercentage">Tip Percentage (%):</label>
+    <input type="number" id="tipPercentage" placeholder="15">
+
+    <label for="numPeople">Number of People:</label>
+    <input type="number" id="numPeople" value="1">
+
+    <button onclick="calculateTip()">Calculate Split</button>
+
+    <div class="result" id="resultBox">
+        <div class="res-item"><span>Total Tip:</span> <span id="totalTipDisplay"></span></div>
+        <div class="res-item"><span>Total Bill:</span> <span id="totalBillDisplay"></span></div>
+        <div class="res-total"><span>Each Person Pays:</span> <span id="perPersonDisplay"></span></div>
+    </div>
+
+    <div class="menu-title">🚀 Explore More Calculators</div>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
+        <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
+    </div>
+</div>
+
+<div class="seo-content" style="max-width: 600px; margin: 40px auto; color: #444; line-height: 1.6; background: white; padding: 20px; border-radius: 10px;">
+    <h3>How to Calculate a Tip and Split the Bill?</h3>
+    <p>Calculating a tip is simple. You take the bill amount, multiply it by the tip percentage (as a decimal), and add that to the original bill. To split it, just divide the final total by the number of people in your group.</p>
+    <p><strong>Example:</strong> A $100 bill with a 20% tip for 2 people:</p>
+    <ul>
+        <li>Tip: $100 x 0.20 = $20</li>
+        <li>Total: $100 + $20 = $120</li>
+        <li>Split: $120 / 2 = $60 per person.</li>
+    </ul>
+</div>
+
+<script>
+    function calculateTip() {
+        const bill = parseFloat(document.getElementById('billAmount').value);
+        const tipPercent = parseFloat(document.getElementById('tipPercentage').value);
+        const people = parseInt(document.getElementById('numPeople').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (isNaN(bill) || isNaN(tipPercent) || isNaN(people) || people <= 0) {
+            alert("Please enter valid numbers");
+            return;
+        }
+
+        const totalTip = bill * (tipPercent / 100);
+        const totalBill = bill + totalTip;
+        const perPerson = totalBill / people;
+
+        document.getElementById('totalTipDisplay').innerText = "$" + totalTip.toFixed(2);
+        document.getElementById('totalBillDisplay').innerText = "$" + totalBill.toFixed(2);
+        document.getElementById('perPersonDisplay').innerText = "$" + perPerson.toFixed(2);
+        
+        resultBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
