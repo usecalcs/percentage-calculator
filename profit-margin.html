@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Margin Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background-color: #e83e8c; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #c82370; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #e83e8c; }
+        
+        .res-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
+        .res-total { border-top: 2px solid #ddd; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 18px; color: #e83e8c; display: flex; justify-content: space-between; }
+
+        /* Menú de Navegación */
+        .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
+        .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
+        .btn-of { background-color: #1e90ff; }
+        .btn-tip { background-color: #6f42c1; }
+        .btn-tax { background-color: #fd7e14; }
+        .btn-exp { background-color: #20c997; }
+
+        /* SEO Content */
+        .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Profit Margin 💼</h2>
+    
+    <label for="costPrice">Cost to You ($):</label>
+    <input type="number" id="costPrice" placeholder="e.g. 50.00" step="0.01">
+
+    <label for="sellingPrice">Selling Price (Revenue) ($):</label>
+    <input type="number" id="sellingPrice" placeholder="e.g. 100.00" step="0.01">
+
+    <button onclick="calculateMargin()">Calculate Profit</button>
+
+    <div class="result" id="resultBox">
+        <div class="res-item"><span>Gross Profit:</span> <span id="resProfit"></span></div>
+        <div class="res-total"><span>Profit Margin:</span> <span id="resMargin"></span></div>
+    </div>
+
+    <div class="menu-title">🚀 Explore More Calculators</div>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
+        <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
+        <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator</a>
+        <a href="sales-tax.html" class="nav-btn btn-tax">🛒 Discount & Sales Tax</a>
+        <a href="expense-split.html" class="nav-btn btn-exp">💸 Expense Split Calculator</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #e83e8c;">How to Calculate Profit Margin?</h3>
+    <p>Understanding your profit margin is essential for any business. It tells you what percentage of your sales is actual profit after deducting the costs of the goods sold.</p>
+    <p>The standard formula to find your gross profit margin is:</p>
+    <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #e83e8c; margin: 15px 0; font-family: monospace;">
+        <strong>Margin = [ (Revenue - Cost) / Revenue ] &times; 100</strong>
+    </div>
+    <p><strong>Example:</strong> If you buy a product for $50 and sell it for $100. Your gross profit is $50. To find the margin: ($50 / $100) &times; 100 = <strong>50% Profit Margin</strong>. Use our free tool above to instantly calculate your margins and price your products correctly!</p>
+</div>
+
+<script>
+    function calculateMargin() {
+        const cost = parseFloat(document.getElementById('costPrice').value);
+        const revenue = parseFloat(document.getElementById('sellingPrice').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (isNaN(cost) || isNaN(revenue) || revenue <= 0) {
+            alert("Please enter valid numbers (Selling Price must be greater than 0).");
+            return;
+        }
+
+        const profit = revenue - cost;
+        const margin = (profit / revenue) * 100;
+
+        document.getElementById('resProfit').innerText = "$" + profit.toFixed(2);
+        document.getElementById('resMargin').innerText = margin.toFixed(2) + "%";
+        
+        resultBox.style.display = "block";
+    }
+</script>
+</body>
+</html>
