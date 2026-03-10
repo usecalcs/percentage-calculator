@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Decrease Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .calculator-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 50px;
+        }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; text-align: center; font-size: 18px; color: #333; display: none; }
+        
+        .seo-content {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            color: #444;
+            line-height: 1.6;
+        }
+        .nav-link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Percentage Decrease</h2>
+    <label for="initialValue">Initial Value (Original):</label>
+    <input type="number" id="initialValue" placeholder="e.g. 100">
+
+    <label for="finalValue">Final Value (New):</label>
+    <input type="number" id="finalValue" placeholder="e.g. 80">
+
+    <button onclick="calculateDecrease()">Calculate</button>
+
+    <div class="result" id="resultBox">
+        <strong id="percentageResult"></strong>
+    </div>
+    
+    <div style="text-align: center;">
+        <a href="index.html" class="nav-link">&larr; Try the Percentage Increase Calculator</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #007bff;">How to Calculate Percentage Decrease?</h3>
+    <p>Whether you are calculating a store discount, tracking weight loss, or analyzing a drop in website traffic, calculating the percentage decrease is a very useful math skill. Here is the standard formula:</p>
+    <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; margin: 15px 0; font-family: monospace;">
+        <strong>Percentage Decrease = [ (Initial Value - Final Value) / |Initial Value| ] &times; 100</strong>
+    </div>
+    
+    <h4 style="color: #333;">Step-by-Step Example</h4>
+    <p>Imagine you are buying a jacket. The original price was <strong>$120</strong>, but it is on sale for <strong>$90</strong>. What is the percentage decrease (discount)?</p>
+    <ol>
+        <li>Subtract the new value from the original value: <em>120 - 90 = 30</em> (This is the absolute price drop).</li>
+        <li>Divide that number by the absolute original value: <em>30 / 120 = 0.25</em>.</li>
+        <li>Multiply by 100 to convert to a percentage: <em>0.25 &times; 100 = 25%</em>.</li>
+    </ol>
+    <p>The price dropped by exactly <strong>25%</strong>. You can use our free calculator above to find the exact percentage difference between any two numbers instantly!</p>
+</div>
+
+<script>
+    function calculateDecrease() {
+        const initial = parseFloat(document.getElementById('initialValue').value);
+        const final = parseFloat(document.getElementById('finalValue').value);
+        const resultBox = document.getElementById('resultBox');
+        const percentageResult = document.getElementById('percentageResult');
+
+        if (isNaN(initial) || isNaN(final) || initial === 0) {
+            percentageResult.innerText = "Please enter valid numbers (Initial value cannot be zero).";
+            percentageResult.style.color = "red";
+            resultBox.style.display = "block";
+            return;
+        }
+
+        const decrease = initial - final;
+        const percentage = (decrease / Math.abs(initial)) * 100;
+
+        if (percentage > 0) {
+            percentageResult.innerText = `Decrease: ${percentage.toFixed(2)}% 📉`;
+            percentageResult.style.color = "green"; // Es verde porque lograr una disminución a veces es el objetivo (ej: descuentos, bajar gastos)
+        } else if (percentage < 0) {
+            percentageResult.innerText = `Wait, that's an Increase of ${Math.abs(percentage).toFixed(2)}% 📈`;
+            percentageResult.style.color = "red";
+        } else {
+            percentageResult.innerText = `No change: 0%`;
+            percentageResult.style.color = "black";
+        }
+        
+        resultBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
