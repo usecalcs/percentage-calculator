@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount & Sales Tax Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background-color: #fd7e14; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #e86e04; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #fd7e14; }
+
+        .res-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
+        .res-total { border-top: 2px solid #ddd; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 18px; color: #fd7e14; display: flex; justify-content: space-between; }
+
+        /* Menú de Navegación */
+        .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
+        .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
+        .btn-of { background-color: #1e90ff; }
+        .btn-tip { background-color: #6f42c1; }
+
+        /* SEO Content */
+        .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Discount & Sales Tax 🛒</h2>
+    
+    <label for="price">Original Price ($):</label>
+    <input type="number" id="price" placeholder="e.g. 100.00" step="0.01">
+
+    <label for="discount">Discount (%):</label>
+    <input type="number" id="discount" placeholder="e.g. 20 (Leave empty if none)">
+
+    <label for="state">State (Sales Tax):</label>
+    <select id="state">
+        <option value="0">No Tax (0%)</option>
+        <option value="4.00">Alabama (4.00%)</option>
+        <option value="7.25">California (7.25%)</option>
+        <option value="2.90">Colorado (2.90%)</option>
+        <option value="6.00">Florida (6.00%)</option>
+        <option value="4.00">New York (4.00%)</option>
+        <option value="6.25">Texas (6.25%)</option>
+    </select>
+
+    <button onclick="calculateTotal()">Calculate Final Price</button>
+
+    <div class="result" id="resultBox">
+        <div class="res-item"><span>Price:</span> <span id="resPrice"></span></div>
+        <div class="res-item" style="color: #28a745;"><span>Discount:</span> <span id="resDiscount"></span></div>
+        <div class="res-item"><span>Subtotal:</span> <span id="resSubtotal"></span></div>
+        <div class="res-item" style="color: #ff4757;"><span>Sales Tax:</span> <span id="resTax"></span></div>
+        <div class="res-total"><span>Final Price:</span> <span id="resTotal"></span></div>
+    </div>
+
+    <div class="menu-title">🚀 Explore More Calculators</div>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
+        <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
+        <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator with Split</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #fd7e14;">How to Calculate Discounts and Sales Tax?</h3>
+    <p>Figuring out the final price of an item on sale can be tricky because sales tax is calculated <strong>after</strong> the discount is applied. Here is how it works:</p>
+    <ol>
+        <li><strong>Find the Discount:</strong> Multiply the original price by the discount percentage. Subtract this from the original price to get the Subtotal.</li>
+        <li><strong>Add the Sales Tax:</strong> Multiply the Subtotal by your state's sales tax percentage. Add this amount to the Subtotal to get the Final Price.</li>
+    </ol>
+    <p>For example, a $100 shirt with a 20% discount costs $80. If your state sales tax is 6%, the tax is calculated on the $80 ($80 x 0.06 = $4.80). Your final price at the register will be <strong>$84.80</strong>.</p>
+</div>
+
+<script>
+    function calculateTotal() {
+        const priceInput = parseFloat(document.getElementById('price').value);
+        let discountInput = parseFloat(document.getElementById('discount').value);
+        const taxRate = parseFloat(document.getElementById('state').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (isNaN(priceInput) || priceInput <= 0) {
+            alert("Please enter a valid original price.");
+            return;
+        }
+
+        if (isNaN(discountInput) || discountInput < 0) {
+            discountInput = 0;
+        }
+
+        const discountAmount = priceInput * (discountInput / 100);
+        const subtotal = priceInput - discountAmount;
+        const taxAmount = subtotal * (taxRate / 100);
+        const finalPrice = subtotal + taxAmount;
+
+        document.getElementById('resPrice').innerText = "$" + priceInput.toFixed(2);
+        document.getElementById('resDiscount').innerText = "-$" + discountAmount.toFixed(2);
+        document.getElementById('resSubtotal').innerText = "$" + subtotal.toFixed(2);
+        document.getElementById('resTax').innerText = "+$" + taxAmount.toFixed(2);
+        document.getElementById('resTotal').innerText = "$" + finalPrice.toFixed(2);
+        
+        resultBox.style.display = "block";
+    }
+</script>
+</body>
+</html>
