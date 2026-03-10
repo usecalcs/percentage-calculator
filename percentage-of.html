@@ -40,20 +40,26 @@
             color: #444;
             line-height: 1.6;
         }
-        .nav-link {
-            margin-top: 10px;
-            display: block;
-            color: #17a2b8;
-            text-decoration: none;
-            font-weight: bold;
+        .menu-title {
+            text-align: center; margin-top: 30px; padding-top: 20px;
+            border-top: 1px solid #eee; color: #777; font-size: 14px;
+            text-transform: uppercase; letter-spacing: 1px; font-weight: bold;
         }
-        .nav-link:hover { text-decoration: underline; }
         .nav-container {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            display: flex; flex-direction: column; gap: 12px; margin-top: 15px;
         }
+        .nav-btn {
+            padding: 12px; text-align: center; border-radius: 8px;
+            text-decoration: none; color: white; font-weight: bold;
+            transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 15px;
+        }
+        .nav-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+        }
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
     </style>
 </head>
 <body>
@@ -71,9 +77,10 @@
         <strong id="percentageResult"></strong>
     </div>
     
+    <div class="menu-title">🚀 Explore More Calculators</div>
     <div class="nav-container">
-        <a href="index.html" class="nav-link">Try Percentage Increase Calculator</a>
-        <a href="decrease.html" class="nav-link">Try Percentage Decrease Calculator</a>
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase Calculator</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease Calculator</a>
     </div>
 </div>
 
