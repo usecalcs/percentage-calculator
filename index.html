@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Increase Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .calculator-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 50px;
+        }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #28a745; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        .result { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; text-align: center; font-size: 18px; color: #333; display: none; }
+        
+        .seo-content {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            color: #444;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Percentage Increase</h2>
+    <label for="initialValue">Initial Value:</label>
+    <input type="number" id="initialValue" placeholder="e.g. 100">
+
+    <label for="finalValue">Final Value:</label>
+    <input type="number" id="finalValue" placeholder="e.g. 150">
+
+    <button onclick="calculateIncrease()">Calculate</button>
+
+    <div class="result" id="resultBox">
+        <strong id="percentageResult"></strong>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #28a745;">How to Calculate Percentage Increase? </h3>
+    <p>Understanding how to calculate percentage increase is essential for tracking business growth, price changes, or personal finance goals. The formula is simple:</p>
+    <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #28a745; margin: 15px 0; font-family: monospace;">
+        <strong>Percentage Increase = [ (Final Value - Initial Value) / |Initial Value| ] &times; 100</strong>
+    </div>
+    
+    <h4 style="color: #333;">Step-by-Step Example</h4>
+    <p>Let's say your monthly traffic goes from <strong>500 visitors</strong> to <strong>750 visitors</strong>.</p>
+    <ol>
+        <li>Subtract the initial value from the final value: <em>750 - 500 = 250</em> (This is the absolute increase).</li>
+        <li>Divide that number by the absolute initial value: <em>250 / 500 = 0.5</em>.</li>
+        <li>Multiply by 100 to get the percentage: <em>0.5 &times; 100 = 50%</em>.</li>
+    </ol>
+    <p>Your traffic increased by exactly <strong>50%</strong>. Use our free tool above to calculate any change instantly, without doing the math yourself!</p>
+</div>
+
+<script>
+    function calculateIncrease() {
+        const initial = parseFloat(document.getElementById('initialValue').value);
+        const final = parseFloat(document.getElementById('finalValue').value);
+        const resultBox = document.getElementById('resultBox');
+        const percentageResult = document.getElementById('percentageResult');
+
+        if (isNaN(initial) || isNaN(final) || initial === 0) {
+            percentageResult.innerText = "Please enter valid numbers (Initial value cannot be zero).";
+            percentageResult.style.color = "red";
+            resultBox.style.display = "block";
+            return;
+        }
+
+        const increase = final - initial;
+        const percentage = (increase / Math.abs(initial)) * 100;
+
+        if (percentage > 0) {
+            percentageResult.innerText = `Increase: ${percentage.toFixed(2)}% 📈`;
+            percentageResult.style.color = "green";
+        } else if (percentage < 0) {
+            percentageResult.innerText = `Decrease: ${Math.abs(percentage).toFixed(2)}% 📉`;
+            percentageResult.style.color = "red";
+        } else {
+            percentageResult.innerText = `No change: 0%`;
+            percentageResult.style.color = "black";
+        }
+        
+        resultBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
