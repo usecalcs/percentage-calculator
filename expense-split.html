@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Split Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background-color: #20c997; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #1aa179; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #20c997; text-align: center; }
+        .res-total { font-size: 24px; font-weight: bold; color: #20c997; margin-top: 10px; }
+
+        /* Menú de Navegación */
+        .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
+        .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
+        .btn-of { background-color: #1e90ff; }
+        .btn-tip { background-color: #6f42c1; }
+        .btn-tax { background-color: #fd7e14; }
+
+        /* SEO Content */
+        .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Expense Splitter 💸</h2>
+    
+    <label for="eventName">Event / Trip Name (Optional):</label>
+    <input type="text" id="eventName" placeholder="e.g. Weekend Trip">
+
+    <label for="totalCost">Total Cost ($):</label>
+    <input type="number" id="totalCost" placeholder="e.g. 850.00" step="0.01">
+
+    <label for="peopleCount">Number of People:</label>
+    <input type="number" id="peopleCount" placeholder="e.g. 4">
+
+    <button onclick="calculateSplit()">Calculate Share</button>
+
+    <div class="result" id="resultBox">
+        <div>Each person owes for <strong id="resEvent">the event</strong>:</div>
+        <div class="res-total" id="resShare"></div>
+    </div>
+
+    <div class="menu-title">🚀 Explore More Calculators</div>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
+        <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
+        <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator</a>
+        <a href="sales-tax.html" class="nav-btn btn-tax">🛒 Discount & Sales Tax</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #20c997;">How to Split Group Expenses Fairly?</h3>
+    <p>Whether you are organizing a road trip, renting a vacation house, or just splitting the cost of groceries with roommates, calculating who owes what is crucial for group harmony.</p>
+    <p>To find the equal share per person, simply divide the <strong>Total Group Cost</strong> by the <strong>Number of People</strong> involved. For example, if a weekend cabin costs $850 and there are 4 of you, the math is <em>$850 / 4 = $212.50</em> per person.</p>
+    <p>Use our free tool above to instantly divide any shared expense without the headache of doing the math yourself!</p>
+</div>
+
+<script>
+    function calculateSplit() {
+        const eventInput = document.getElementById('eventName').value || "the event";
+        const cost = parseFloat(document.getElementById('totalCost').value);
+        const people = parseInt(document.getElementById('peopleCount').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (isNaN(cost) || cost <= 0 || isNaN(people) || people <= 0) {
+            alert("Please enter a valid total cost and number of people.");
+            return;
+        }
+
+        const share = cost / people;
+
+        document.getElementById('resEvent').innerText = eventInput;
+        document.getElementById('resShare').innerText = "$" + share.toFixed(2);
+        
+        resultBox.style.display = "block";
+    }
+</script>
+</body>
+</html>
