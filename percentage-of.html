@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage of a Number Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .calculator-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 50px;
+        }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #17a2b8; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #138496; }
+        .result { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; text-align: center; font-size: 18px; color: #333; display: none; }
+        
+        .seo-content {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            color: #444;
+            line-height: 1.6;
+        }
+        .nav-link {
+            margin-top: 10px;
+            display: block;
+            color: #17a2b8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-link:hover { text-decoration: underline; }
+        .nav-container {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Percentage of a Number</h2>
+    <label for="percentageValue">What is</label>
+    <input type="number" id="percentageValue" placeholder="e.g. 20">
+    <label for="totalValue">% of</label>
+    <input type="number" id="totalValue" placeholder="e.g. 150">
+
+    <button onclick="calculatePercentageOf()">Calculate</button>
+
+    <div class="result" id="resultBox">
+        <strong id="percentageResult"></strong>
+    </div>
+    
+    <div class="nav-container">
+        <a href="index.html" class="nav-link">Try Percentage Increase Calculator</a>
+        <a href="decrease.html" class="nav-link">Try Percentage Decrease Calculator</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #17a2b8;">How to find the Percentage of a Number?</h3>
+    <p>Finding the percentage of a specific number is a common task for calculating tips, sales tax, or commissions. The math formula is straightforward:</p>
+    <div style="background: #f8f9fa; padding: 15px; border-left: 4px solid #17a2b8; margin: 15px 0; font-family: monospace;">
+        <strong>Result = (Percentage / 100) &times; Total Value</strong>
+    </div>
+    
+    <h4 style="color: #333;">Step-by-Step Example</h4>
+    <p>Let's say you are at a restaurant and want to leave a <strong>20% tip</strong> on a <strong>$85</strong> bill.</p>
+    <ol>
+        <li>Divide the percentage by 100 to get the decimal format: <em>20 / 100 = 0.20</em>.</li>
+        <li>Multiply that decimal by the total value: <em>0.20 &times; 85 = 17</em>.</li>
+    </ol>
+    <p>Your tip amount is <strong>$17</strong>. Use our quick tool above to calculate any percentage of any number in seconds!</p>
+</div>
+
+<script>
+    function calculatePercentageOf() {
+        const percentage = parseFloat(document.getElementById('percentageValue').value);
+        const total = parseFloat(document.getElementById('totalValue').value);
+        const resultBox = document.getElementById('resultBox');
+        const percentageResult = document.getElementById('percentageResult');
+
+        if (isNaN(percentage) || isNaN(total)) {
+            percentageResult.innerText = "Please enter valid numbers.";
+            percentageResult.style.color = "red";
+            resultBox.style.display = "block";
+            return;
+        }
+
+        const result = (percentage / 100) * total;
+
+        percentageResult.innerText = `${percentage}% of ${total} is ${result.toFixed(2)}`;
+        percentageResult.style.color = "#138496";
+        resultBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
