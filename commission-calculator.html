@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <link rel="icon" type="image/png" href="calculadora.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commission Calculator</title>
@@ -25,7 +33,6 @@
         .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
         .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
 
-      
         .btn-inc { background-color: #28a745; }
         .btn-dec { background-color: #ff4757; }
         .btn-of { background-color: #1e90ff; }
@@ -38,6 +45,21 @@
       
         /* SEO Content */
         .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -62,7 +84,6 @@
     <div class="menu-title">🚀 Explore More Calculators</div>
   
     <div class="nav-container">
-
         <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
         <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
@@ -72,7 +93,6 @@
         <a href="expense-split.html" class="nav-btn btn-exp">💸 Expense Split Calculator</a>
         <a href="profit-margin.html" class="nav-btn btn-prof">💼 Profit Margin Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
-      
     </div>
 </div>
 
@@ -80,8 +100,18 @@
     <h3 style="color: #f39c12;">How to Calculate Sales Commission?</h3>
     <p>Whether you are in real estate, car sales, or a freelance affiliate marketer, knowing exactly how much you earn per sale is vital. Sales commission is simply a percentage of the total sale amount.</p>
     <p>The formula is straightforward: <strong>Commission = Sale Amount &times; (Commission Rate / 100)</strong>.</p>
-    <p><strong>Example:</strong> If you sell a property for $200,000 and your agreed commission rate is 3%, your earnings would be $200,000 &times; 0.03 = <strong>$6,000</strong>. Use our free tool above to instantly calculate your payout and see the net amount left for the company!</p>
+    <p><strong>Example:</strong> If you sell a property for $200,000 and your agreed commission rate is 3%, your earnings would be $200,000 &times; 0.03 = <strong>$6,000</strong>. Use our free tool above to instantly calculate your payout!</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateCommission() {
