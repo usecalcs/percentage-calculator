@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="calculadora.png">
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-X9VSF7HNLH');
-</script>
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +81,20 @@
         .btn-comm { background-color: #f39c12; }
         .btn-free { background-color: #34495e; }
         
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -131,6 +145,16 @@
     </ol>
     <p>Your tip amount is <strong>$17</strong>. Use our quick tool above to calculate any percentage of any number in seconds!</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculatePercentageOf() {
