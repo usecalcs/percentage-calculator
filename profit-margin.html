@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="calculadora.png">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
 
-  gtag('config', 'G-X9VSF7HNLH');
-</script>
+    <meta name="google-site-verification" content="olKjGOsQmEBzTxB7t8u_hlj72BlCWJwSuMb0OMQNVes" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,6 +48,21 @@
         
         /* SEO Content */
         .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -69,7 +86,6 @@
     <div class="menu-title">🚀 Explore More Calculators</div>
     
     <div class="nav-container">
-
         <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
@@ -91,6 +107,16 @@
     </div>
     <p><strong>Example:</strong> If you buy a product for $50 and sell it for $100. Your gross profit is $50. To find the margin: ($50 / $100) &times; 100 = <strong>50% Profit Margin</strong>. Use our free tool above to instantly calculate your margins and price your products correctly!</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateMargin() {
