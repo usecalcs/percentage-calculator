@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X9VSF7HNLH');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
     
     <meta name="google-site-verification" content="olKjGOsQmEBzTxB7t8u_hlj72BlCWJwSuMb0OMQNVes" />
     <meta charset="UTF-8">
@@ -71,7 +68,6 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
         }
 
-        
         .btn-dec { background-color: #ff4757; }
         .btn-of { background-color: #1e90ff; }
         .btn-tip { background-color: #6f42c1; }
@@ -81,6 +77,21 @@
         .btn-mark { background-color: #17a2b8; }
         .btn-comm { background-color: #f39c12; }
         .btn-free { background-color: #34495e; }
+
+        /* Estilo para el footer */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
         
     </style>
 </head>
@@ -99,10 +110,10 @@
     <div class="result" id="resultBox">
         <strong id="percentageResult"></strong>
     </div>
+
     <div class="menu-title">🚀 Explore More Calculators</div>
     
     <div class="nav-container">
-
         <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
@@ -112,8 +123,8 @@
         <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator with Split</a>
         <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease Calculator</a>
         <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
-        
     </div>
+</div>
 
 <div class="seo-content">
     <h3 style="color: #28a745;">How to Calculate Percentage Increase? </h3>
@@ -125,12 +136,21 @@
     <h4 style="color: #333;">Step-by-Step Example</h4>
     <p>Let's say your monthly traffic goes from <strong>500 visitors</strong> to <strong>750 visitors</strong>.</p>
     <ol>
-        <li>Subtract the initial value from the final value: <em>750 - 500 = 250</em> (This is the absolute increase).</li>
+        <li>Subtract the initial value from the final value: <em>750 - 500 = 250</em>.</li>
         <li>Divide that number by the absolute initial value: <em>250 / 500 = 0.5</em>.</li>
         <li>Multiply by 100 to get the percentage: <em>0.5 &times; 100 = 50%</em>.</li>
     </ol>
-    <p>Your traffic increased by exactly <strong>50%</strong>. Use our free tool above to calculate any change instantly, without doing the math yourself!</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateIncrease() {
@@ -165,20 +185,4 @@
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
