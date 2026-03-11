@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Project Quoter</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background-color: #34495e; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #2c3e50; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #34495e; }
+        
+        .res-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
+        .res-highlight { font-weight: bold; color: #34495e; font-size: 18px; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 10px; display: flex; justify-content: space-between; }
+
+        /* Menú de Navegación */
+        .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
+        .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        
+        .btn-inc { background-color: #28a745; }
+        .btn-dec { background-color: #ff4757; }
+        .btn-of { background-color: #1e90ff; }
+        .btn-tip { background-color: #6f42c1; }
+        .btn-tax { background-color: #fd7e14; }
+        .btn-exp { background-color: #20c997; }
+        .btn-prof { background-color: #e83e8c; }
+        .btn-mark { background-color: #17a2b8; }
+        .btn-comm { background-color: #f39c12; }
+      
+
+        /* SEO Content */
+        .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Project Quoter 💻</h2>
+    
+    <label for="hoursInput">Estimated Hours:</label>
+    <input type="number" id="hoursInput" placeholder="e.g. 40" step="1">
+
+    <label for="rateInput">Hourly Rate ($):</label>
+    <input type="number" id="rateInput" placeholder="e.g. 25.00" step="0.01">
+
+    <label for="contingencyInput">Contingency Margin (%):</label>
+    <input type="number" id="contingencyInput" placeholder="e.g. 20 (for unexpected work)" step="1">
+
+    <button onclick="calculateQuote()">Calculate Total Quote</button>
+
+    <div class="result" id="resultBox">
+        <div class="res-item"><span>Base Cost:</span> <span id="resBase"></span></div>
+        <div class="res-item" style="color: #e83e8c;"><span>Contingency Buffer:</span> <span id="resBuffer"></span></div>
+        <div class="res-highlight"><span>Total Final Quote:</span> <span id="resTotal"></span></div>
+    </div>
+
+    <div class="menu-title">🚀 Explore More Calculators</div>
+  
+    <div class="nav-container">
+
+      
+        <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
+        <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
+        <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
+        <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator</a>
+        <a href="sales-tax.html" class="nav-btn btn-tax">🛒 Discount & Sales Tax</a>
+        <a href="expense-split.html" class="nav-btn btn-exp">💸 Expense Split Calculator</a>
+        <a href="profit-margin.html" class="nav-btn btn-prof">💼 Profit Margin Calculator</a>
+        <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
+        <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
+    </div>
+</div>
+
+<div class="seo-content">
+    <h3 style="color: #34495e;">How to Quote a Freelance Project?</h3>
+    <p>Pricing your freelance work correctly is crucial to avoid working for free when projects inevitably take longer than expected. Whether you are a web developer, designer, or consultant, this simple framework works:</p>
+    <ol>
+        <li><strong>Estimate your hours:</strong> Be realistic about how long the project will take.</li>
+        <li><strong>Set your hourly rate:</strong> This should cover your time, taxes, and software expenses.</li>
+        <li><strong>Add a contingency margin:</strong> Always add 15% to 20% to cover unexpected client revisions, bugs, or scope creep.</li>
+    </ol>
+    <p><strong>Example:</strong> A 40-hour web design project at $25/hr is $1,000. Adding a 20% contingency margin ($200) brings your final safe quote to <strong>$1,200</strong>. Use our calculator above to quickly quote your next big client!</p>
+</div>
+
+<script>
+    function calculateQuote() {
+        const hours = parseFloat(document.getElementById('hoursInput').value);
+        const rate = parseFloat(document.getElementById('rateInput').value);
+        let contingency = parseFloat(document.getElementById('contingencyInput').value);
+        const resultBox = document.getElementById('resultBox');
+
+        if (isNaN(hours) || isNaN(rate) || hours <= 0 || rate <= 0) {
+            alert("Please enter valid positive numbers for hours and rate.");
+            return;
+        }
+
+        if (isNaN(contingency) || contingency < 0) {
+            contingency = 0;
+        }
+
+        const baseCost = hours * rate;
+        const bufferAmount = baseCost * (contingency / 100);
+        const totalQuote = baseCost + bufferAmount;
+
+        document.getElementById('resBase').innerText = "$" + baseCost.toFixed(2);
+        document.getElementById('resBuffer').innerText = "+$" + bufferAmount.toFixed(2);
+        document.getElementById('resTotal').innerText = "$" + totalQuote.toFixed(2);
+        
+        resultBox.style.display = "block";
+    }
+</script>
+</body>
+</html>
