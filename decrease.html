@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X9VSF7HNLH');
+    <link rel="icon" type="image/png" href="calculadora.png">
     
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Percentage Decrease Calculator</title>
@@ -69,7 +70,6 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
         }
 
-        
         .btn-inc { background-color: #28a745; }
         .btn-of { background-color: #1e90ff; }
         .btn-tip { background-color: #6f42c1; }
@@ -79,6 +79,21 @@
         .btn-mark { background-color: #17a2b8; }
         .btn-comm { background-color: #f39c12; }
         .btn-free { background-color: #34495e; }
+        
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
         
     </style>
 </head>
@@ -100,9 +115,7 @@
     
     <div class="menu-title">🚀 Explore More Calculators</div>
 
-    
     <div class="nav-container">
-
         <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
@@ -112,10 +125,9 @@
         <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator with Split</a>
         <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase Calculator</a>
         <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
-        
     </div>
+</div>
 
-    
 <div class="seo-content">
     <h3 style="color: #007bff;">How to Calculate Percentage Decrease?</h3>
     <p>Whether you are calculating a store discount, tracking weight loss, or analyzing a drop in website traffic, calculating the percentage decrease is a very useful math skill. Here is the standard formula:</p>
@@ -132,6 +144,16 @@
     </ol>
     <p>The price dropped by exactly <strong>25%</strong>. You can use our free calculator above to find the exact percentage difference between any two numbers instantly!</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateDecrease() {
