@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="calculadora.png">
+    
+    <meta name="google-site-verification" content="olKjGOsQmEBzTxB7t8u_hlj72BlCWJwSuMb0OMQNVes" />
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-X9VSF7HNLH');
-</script>
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +49,21 @@
         
         /* SEO Content */
         .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
+
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -84,7 +101,6 @@
     <div class="menu-title">🚀 Explore More Calculators</div>
     
     <div class="nav-container">
-
         <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
@@ -94,7 +110,6 @@
         <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
         <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
         <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator with Split</a>
-        
     </div>
 </div>
 
@@ -107,6 +122,16 @@
     </ol>
     <p>For example, a $100 shirt with a 20% discount costs $80. If your state sales tax is 6%, the tax is calculated on the $80 ($80 x 0.06 = $4.80). Your final price at the register will be <strong>$84.80</strong>.</p>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateTotal() {
