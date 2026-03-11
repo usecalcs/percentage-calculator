@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="calculadora.png">
+    
+    <meta name="google-site-verification" content="olKjGOsQmEBzTxB7t8u_hlj72BlCWJwSuMb0OMQNVes" />
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9VSF7HNLH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-X9VSF7HNLH');
-</script>
+      gtag('config', 'G-X9VSF7HNLH');
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +27,7 @@
         button:hover { background-color: #5a32a3; }
         .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #6f42c1; }
         
-        /* Estilos del Menú (Líneas 20-35 aprox) */
+        /* Estilos del Menú */
         .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
         .nav-container { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
         .nav-btn { padding: 12px; text-align: center; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-size: 14px; }
@@ -41,9 +43,24 @@
         .btn-mark { background-color: #17a2b8; }
         .btn-comm { background-color: #f39c12; }
         .btn-free { background-color: #34495e; }
-      
+       
         .res-item { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 16px; }
         .res-total { border-top: 1px solid #ddd; padding-top: 5px; margin-top: 10px; font-weight: bold; font-size: 18px; color: #6f42c1; }
+
+        /* Estilo para el footer unificado */
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #718096; 
+            width: 100%; 
+            max-width: 600px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px; 
+            padding-bottom: 40px; 
+        }
+        footer a { color: #3182ce; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -71,7 +88,6 @@
 
     
     <div class="nav-container">
-
       <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
       <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
       <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
@@ -81,7 +97,6 @@
       <a href="index.html" class="nav-btn btn-inc">📈 Percentage Increase</a>
       <a href="decrease.html" class="nav-btn btn-dec">📉 Percentage Decrease</a>
       <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
-        
     </div>
 </div>
 
@@ -95,6 +110,16 @@
         <li>Split: $120 / 2 = $60 per person.</li>
     </ul>
 </div>
+
+<footer>
+    <p style="margin-bottom: 10px;"><b>UseCalcs</b> - Herramientas para Estudiantes</p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="https://getchatlink.github.io/">GetChatLink</a>
+        <span style="color: #cbd5e0;">|</span>
+        <a href="https://usecalcs.github.io/calculadora-matrices/">Calculadora de Álgebra</a>
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.6;">Desarrollado por Dante</p>
+</footer>
 
 <script>
     function calculateTip() {
