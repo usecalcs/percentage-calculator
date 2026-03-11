@@ -16,17 +16,19 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Split Calculator</title>
+    <title>Freelance Project Quoter</title>
     <style>
         body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .calculator-container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; width: 100%; margin-top: 50px; }
         h2 { text-align: center; color: #333; }
         label { display: block; margin-top: 15px; color: #555; font-weight: bold; }
         input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
-        button { width: 100%; padding: 12px; background-color: #20c997; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
-        button:hover { background-color: #1aa179; }
-        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #20c997; text-align: center; }
-        .res-total { font-size: 24px; font-weight: bold; color: #20c997; margin-top: 10px; }
+        button { width: 100%; padding: 12px; background-color: #34495e; color: white; border: none; border-radius: 5px; margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #2c3e50; }
+        .result { margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; color: #333; display: none; border: 1px dashed #34495e; }
+        
+        .res-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
+        .res-total { border-top: 2px solid #ddd; padding-top: 10px; margin-top: 10px; font-weight: bold; font-size: 18px; color: #34495e; display: flex; justify-content: space-between; }
 
         /* Menú de Navegación */
         .menu-title { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
@@ -39,10 +41,10 @@
         .btn-of { background-color: #1e90ff; }
         .btn-tip { background-color: #6f42c1; }
         .btn-tax { background-color: #fd7e14; }
+        .btn-exp { background-color: #20c997; }
         .btn-prof { background-color: #e83e8c; }
         .btn-mark { background-color: #17a2b8; }
         .btn-comm { background-color: #f39c12; }
-        .btn-free { background-color: #34495e; }
         
         /* SEO Content */
         .seo-content { max-width: 600px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); color: #444; line-height: 1.6; }
@@ -66,28 +68,29 @@
 <body>
 
 <div class="calculator-container">
-    <h2>Expense Splitter 💸</h2>
+    <h2>Freelance Quoter 💻</h2>
     
-    <label for="eventName">Event / Trip Name (Optional):</label>
-    <input type="text" id="eventName" placeholder="e.g. Weekend Trip">
+    <label for="hourlyRate">Your Hourly Rate ($):</label>
+    <input type="number" id="hourlyRate" placeholder="e.g. 25.00" step="0.01">
 
-    <label for="totalCost">Total Cost ($):</label>
-    <input type="number" id="totalCost" placeholder="e.g. 850.00" step="0.01">
+    <label for="estHours">Estimated Hours for Project:</label>
+    <input type="number" id="estHours" placeholder="e.g. 40">
 
-    <label for="peopleCount">Number of People:</label>
-    <input type="number" id="peopleCount" placeholder="e.g. 4">
+    <label for="contingency">Contingency Buffer (%):</label>
+    <input type="number" id="contingency" placeholder="e.g. 20" value="20">
+    <small style="color: #888; font-size: 12px; display: block; margin-top: 4px;">Extra padding for unexpected scope changes.</small>
 
-    <button onclick="calculateSplit()">Calculate Share</button>
+    <button onclick="calculateQuote()">Calculate Total Quote</button>
 
     <div class="result" id="resultBox">
-        <div>Each person owes for <strong id="resEvent">the event</strong>:</div>
-        <div class="res-total" id="resShare"></div>
+        <div class="res-item"><span>Base Labor Cost:</span> <span id="resBase"></span></div>
+        <div class="res-item"><span>Buffer Amount:</span> <span id="resBuffer"></span></div>
+        <div class="res-total"><span>Total Project Quote:</span> <span id="resQuote"></span></div>
     </div>
 
     <div class="menu-title">🚀 Explore More Calculators</div>
     
     <div class="nav-container">
-        <a href="freelance-quoter.html" class="nav-btn btn-free">💻 Freelance Project Quoter</a>
         <a href="commission-calculator.html" class="nav-btn btn-comm">💰 Commission Calculator</a>
         <a href="markup-vs-margin.html" class="nav-btn btn-mark">⚖️ Markup vs Margin</a>
         <a href="profit-margin.html" class="nav-btn btn-prof">💼 Profit Margin Calculator</a>
@@ -96,14 +99,18 @@
         <a href="percentage-of.html" class="nav-btn btn-of">🔢 Percentage of a Number</a>
         <a href="tip-calculator.html" class="nav-btn btn-tip">🍔 Tip Calculator</a>
         <a href="sales-tax.html" class="nav-btn btn-tax">🛒 Discount & Sales Tax</a>
+        <a href="expense-split.html" class="nav-btn btn-exp">💸 Expense Split Calculator</a>
     </div>
 </div>
 
 <div class="seo-content">
-    <h3 style="color: #20c997;">How to Split Group Expenses Fairly?</h3>
-    <p>Whether you are organizing a road trip, renting a vacation house, or just splitting the cost of groceries with roommates, calculating who owes what is crucial for group harmony.</p>
-    <p>To find the equal share per person, simply divide the <strong>Total Group Cost</strong> by the <strong>Number of People</strong> involved. For example, if a weekend cabin costs $850 and there are 4 of you, the math is <em>$850 / 4 = $212.50</em> per person.</p>
-    <p>Use our free tool above to instantly divide any shared expense without the headache of doing the math yourself!</p>
+    <h3 style="color: #34495e;">How to Price a Freelance Project?</h3>
+    <p>Pricing your freelance services correctly ensures you get paid what you are worth without undervaluing your time. A reliable way to quote a project is using the <strong>Hourly Rate + Buffer</strong> method.</p>
+    <ol>
+        <li><strong>Base Cost:</strong> Multiply your desired hourly rate by the estimated hours the project will take.</li>
+        <li><strong>Contingency Buffer:</strong> Always add a 15% to 20% buffer. Clients often request changes or scope creep occurs. This protects your profitability!</li>
+    </ol>
+    <p><strong>Example:</strong> If you charge $30/hour and estimate a website will take 20 hours, your base cost is $600. Adding a 20% buffer ($120) brings your final professional quote to <strong>$720</strong>.</p>
 </div>
 
 <footer>
@@ -117,21 +124,28 @@
 </footer>
 
 <script>
-    function calculateSplit() {
-        const eventInput = document.getElementById('eventName').value || "the event";
-        const cost = parseFloat(document.getElementById('totalCost').value);
-        const people = parseInt(document.getElementById('peopleCount').value);
+    function calculateQuote() {
+        const rate = parseFloat(document.getElementById('hourlyRate').value);
+        const hours = parseFloat(document.getElementById('estHours').value);
+        let buffer = parseFloat(document.getElementById('contingency').value);
         const resultBox = document.getElementById('resultBox');
 
-        if (isNaN(cost) || cost <= 0 || isNaN(people) || people <= 0) {
-            alert("Please enter a valid total cost and number of people.");
+        if (isNaN(rate) || rate <= 0 || isNaN(hours) || hours <= 0) {
+            alert("Please enter valid numbers for Hourly Rate and Estimated Hours.");
             return;
         }
 
-        const share = cost / people;
+        if (isNaN(buffer) || buffer < 0) {
+            buffer = 0;
+        }
 
-        document.getElementById('resEvent').innerText = eventInput;
-        document.getElementById('resShare').innerText = "$" + share.toFixed(2);
+        const baseCost = rate * hours;
+        const bufferAmount = baseCost * (buffer / 100);
+        const totalQuote = baseCost + bufferAmount;
+
+        document.getElementById('resBase').innerText = "$" + baseCost.toFixed(2);
+        document.getElementById('resBuffer').innerText = "+$" + bufferAmount.toFixed(2);
+        document.getElementById('resQuote').innerText = "$" + totalQuote.toFixed(2);
         
         resultBox.style.display = "block";
     }
