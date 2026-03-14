@@ -24,4 +24,6 @@ Esta suite está integrada con otras herramientas del mismo autor:
 * [GetChatLink - Generador de WhatsApp](https://getchatlink.github.io/)
 
 ---
-👨‍💻 **Desarrollado por Dante**
+## 👨‍💻 Desarrollado por
+**Dante** Estudiante de Ingeniería en Sistemas. 
+*(Este proyecto forma parte de la red de herramientas interconectadas de UseCalcs).*
